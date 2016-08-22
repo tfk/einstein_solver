@@ -11,12 +11,6 @@ const size = 5
 const traits = 5
 const max_score = 15.0
 
-var nations = []string { "german", "british", "swedish", "danish", "norsh" }
-var color = []string { "red", "green", "white",  "yellow", "blue" }
-var pet = []string { "dog", "bird", "cat", "horse", "fish" }
-var drink = []string { "tea", "coffee", "milk", "beer", "water" }
-var cigaret = []string { "pall mall", "dunhill", "winfield", "rothmanns", "marlboro" }
-
 type Solution struct {
 	nations []string	
 	color []string	
@@ -64,7 +58,7 @@ func analyze(s Solution) (score float64){
 		if s.color[i] == "yellow"  && s.cigaret[i] == "dunhill" { 
 			score--
 		}
-		if i == 0  && s.nations[i] == "norsh" { 
+		if i == 0  && s.nations[i] == "norwegian" { 
 			score--
 		}
 		if s.cigaret[i] == "marlboro" && ((left  && s.pet[i-1] == "cat") || (right &&  s.pet[i+1] == "cat")) { 
@@ -76,7 +70,7 @@ func analyze(s Solution) (score float64){
 		if s.cigaret[i] == "winfield"  && s.drink[i] == "beer" { 
 			score--
 		}
-		if s.nations[i] == "norsh"  && ((left  && s.color[i-1] == "blue") || (right &&  s.color[i+1] == "blue")) { 
+		if s.nations[i] == "norwegian"  && ((left  && s.color[i-1] == "blue") || (right &&  s.color[i+1] == "blue")) { 
 			score--
 		}
 		if s.nations[i] == "german"  && s.cigaret[i] == "rothmanns" { 
@@ -128,12 +122,13 @@ func mutate(s Solution) Solution {
 
 func main() {
 	s := Solution { 
-		nations,
-		color,
-		pet,
-		drink,
-		cigaret, 
+		nations: []string { "german", "british", "swedish", "danish", "norwegian" }, 
+		color: []string { "red", "green", "white",  "yellow", "blue" },
+		pet: []string { "dog", "bird", "cat", "horse", "fish" },
+		drink: []string { "tea", "coffee", "milk", "beer", "water" },
+		cigaret: []string { "pall mall", "dunhill", "winfield", "rothmanns", "marlboro" }, 
 	}
+
 	rand.Seed(time.Now().UTC().UnixNano())
 	const delta = 0.1
 	const k = 500	
