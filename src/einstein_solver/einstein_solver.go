@@ -34,16 +34,6 @@ func random_permutation(src []string) (dest []string) {
 	return dest
 }
 
-func generate_random_solution() (s Solution) {
-	return Solution { 
-		random_permutation(nations),
-		random_permutation(color),
-		random_permutation(pet),
-		random_permutation(drink),
-		random_permutation(cigaret), 
-	}
-}
-
 func analyze(s Solution) float64{
 	var ctr float64 = 0
 
