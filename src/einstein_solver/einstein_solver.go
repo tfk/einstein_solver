@@ -1,9 +1,12 @@
 package main
 
-//import "fmt"
-import "math/rand"
-import "math"
-import "time"
+import ( 
+	"fmt"
+	"math"
+	"math/rand"
+	"time"
+)
+
 
 const size = 5
 const traits = 5
@@ -180,6 +183,6 @@ func main() {
 			}
 		}
 	}
-//	fmt.Println(s)
-//	fmt.Println(analyze(s))
+	fmt.Println(s)
+
 }
