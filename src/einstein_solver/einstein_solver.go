@@ -7,7 +7,6 @@ import (
 	"time"
 )
 
-
 const size = 5
 const traits = 5
 const max_score = 15.0
@@ -17,12 +16,6 @@ var color = []string { "red", "green", "white",  "yellow", "blue" }
 var pet = []string { "dog", "bird", "cat", "horse", "fish" }
 var drink = []string { "tea", "coffee", "milk", "beer", "water" }
 var cigaret = []string { "pall mall", "dunhill", "winfield", "rothmanns", "marlboro" }
-
-var sol_nations = []string { "norsh", "danish", "british", "german", "swedish" }
-var sol_color = []string { "yellow", "blue", "red", "green", "white" }
-var sol_pet = []string { "cat", "horse", "bird", "fish", "dog" }
-var sol_drink = []string { "water", "tea", "milk", "coffee", "beer" }
-var sol_cigaret = []string {"dunhill", "marlboro", "pall mall", "rothmanns", "winfield" }
 
 type Solution struct {
 	nations []string	
@@ -184,5 +177,4 @@ func main() {
 		}
 	}
 	fmt.Println(s)
-
 }
