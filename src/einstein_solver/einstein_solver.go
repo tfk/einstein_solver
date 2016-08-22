@@ -34,60 +34,59 @@ func random_permutation(src []string) (dest []string) {
 	return dest
 }
 
-func analyze(s Solution) float64{
-	var ctr float64 = 0
-
+func analyze(s Solution) (score float64){
+	score = max_score
 	for i := 0 ; i < size; i++ {
 		left := i > 0
 		right := i < (size -1 );
 	
 		if s.nations[i] == "british" && s.color[i] == "red" {
-			ctr++
+			score--
 		}
 		if s.nations[i] == "swedish" && s.pet[i] == "dog" {
-			ctr++
+			score--
 		}
 		if s.nations[i] == "danish" && s.drink[i] == "tea" {
-			ctr++
+			score--
 		}
 		if s.color[i] == "green" && right && s.color[i+1] == "white" {
-			ctr++
+			score--
 		}
 		if s.color[i] == "green" && s.drink[i] == "coffee" { 
-			ctr++
+			score--
 		}
 		if s.cigaret[i] == "pall mall" && s.pet[i] == "bird" { 
-			ctr++
+			score--
 		}
 		if i == 2  && s.drink[i] == "milk" { 
-			ctr++
+			score--
 		}
 		if s.color[i] == "yellow"  && s.cigaret[i] == "dunhill" { 
-			ctr++
+			score--
 		}
 		if i == 0  && s.nations[i] == "norsh" { 
-			ctr++
+			score--
 		}
 		if s.cigaret[i] == "marlboro" && ((left  && s.pet[i-1] == "cat") || (right &&  s.pet[i+1] == "cat")) { 
-			ctr++
+			score--
 		}
 		if s.pet[i] == "horse" && ((left  && s.cigaret[i-1] == "dunhill") || (right &&  s.cigaret[i+1] == "dunhill")) { 
-			ctr++
+			score--
 		}
 		if s.cigaret[i] == "winfield"  && s.drink[i] == "beer" { 
-			ctr++
+			score--
 		}
 		if s.nations[i] == "norsh"  && ((left  && s.color[i-1] == "blue") || (right &&  s.color[i+1] == "blue")) { 
-			ctr++
+			score--
 		}
 		if s.nations[i] == "german"  && s.cigaret[i] == "rothmanns" { 
-			ctr++
+			score--
 		}
 		if s.cigaret[i] == "marlboro" && ((left  && s.drink[i-1] == "water") || (right &&  s.drink[i+1] == "water")) { 
-			ctr++
+			score--
 		}
 	}
-	return (max_score - ctr)
+	return
 }
 
 func mutate(s Solution) Solution {
